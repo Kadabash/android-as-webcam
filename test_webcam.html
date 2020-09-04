@@ -1,0 +1,28 @@
+<!-- This file was mostly copied from content from the Mozilla MDN
+     at https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery
+
+     The copied content was placed in a HTML page skeleton.
+
+     Therefore, this file is licenced under the CC BY-SA 2.5 licence,
+     which can be found at https://creativecommons.org/licenses/by-sa/2.5/
+ -->
+<html>
+<body>
+<video id="webcam" width="320" height="240"></video>
+<script>
+if (navigator.mediaDevices) {
+  navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+  .then(function onSuccess(stream) {
+    var video = document.getElementById('webcam');
+    video.autoplay = true;
+    video.srcObject = stream;
+  })
+  .catch(function onError() {
+    alert('There has been a problem retreiving the streams - are you running on file:/// or did you disallow access?');
+  });
+} else {
+  alert('getUserMedia is not supported in this browser.');
+}
+</script>
+</body>
+</html>

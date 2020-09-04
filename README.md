@@ -34,7 +34,8 @@ Doesn't require root, or any software to be installed on the phone.
   
 5. Start the script: `bash android-as-webcam.sh`
 
-6. Done! Test that the webcam works in your apps.
+6. Done! Test that the webcam works in your apps.<br>
+   A simple test page that works in Firefox is `test_webcam.html` in this repo.
 
 ## Known Issues
 
