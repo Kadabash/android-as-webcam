@@ -4,7 +4,7 @@
 RECORD_WIDTH_PX=360
 RECORD_HEIGHT_PX=640
 RECORD_BIT_RATE=500000
-RECORD_TIME_SECS=10  # Must be 180 seconds or lower. CAUTION: Stream will restart automatically after this time. Set it to a low value and test that your programs handle this properly.
+RECORD_TIME_SECS=180  # Must be 180 seconds or lower. CAUTION: Stream will restart automatically after this time. Set it to a low value and test that your programs handle this properly.
 
 # Specify a rectangle within the recording at an offset
 # to which to crop. This can be useful to crop camera app
