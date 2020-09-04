@@ -38,6 +38,8 @@ Doesn't require root, or any software to be installed on the phone.
 
 ## Known Issues
 
+* This does not capture audio, only video.
+
 * The stream will be restarted automatically every 3 minutes. 
   This is a limitation of the built-in Android `screenrecord` command we're using.
   Check that your applications handle this restarting well by setting the `RECORD_TIME_SECS` 
