@@ -2,6 +2,7 @@
 
 Connect your Android phone to a Linux computer with USB and use it as a webcam.<br>
 Doesn't require root, or any software to be installed on the phone.
+
 ## Requirements
 
 * Tested only on Debian 10 (x86_64), but should work on Ubuntu as well.
@@ -35,17 +36,28 @@ Doesn't require root, or any software to be installed on the phone.
 
 6. Done! Test that the webcam works in your apps.
 
-## Caveats
+## Known Issues
 
 * The stream will be restarted automatically every 3 minutes. 
   This is a limitation of the built-in Android `screenrecord` command we're using.
   Check that your applications handle this restarting well by setting the `RECORD_TIME_SECS` 
-  variable in the script to a low value.
+  variable in the script to a low value like 10.
   
-* This has only been tested with a Galaxy S5 (G900F) until now.
+* This has only been tested with a Galaxy S5 (G900F) running LineageOS 16.0.
   
 * The phone screen must never turn off, or the connection will be lost.
   "Caffeine mode" in the quick settings on Android can be set to an infinite time, which keeps the screen on.
+  
+* The current settings introduce about one second of delay between the phone camera and the webcam picture.
+
+* By default, the picture quality is very low. Adjust the resolution, bitrate and crop rectangle in the settings
+  at the beginning of the script.
+  
+* If no webcam image is visible, here are some possible reasons:
+  - The GNOME Cheese app does not recognise the virtual webcam for some reason. Firefox, however, seems to work fine.
+  - If the `v4l2loopback` works correctly, a file `/dev/video0` should be present.
+  - If the capture resolution is changed in the script, the computer needs to be rebooted.
+  - If only a small part of the picture is visible, change the crop rectangle in the script.
   
 ## Credits
 
