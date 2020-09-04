@@ -58,6 +58,7 @@ Doesn't require root, or any software to be installed on the phone.
   - If the `v4l2loopback` works correctly, a file `/dev/video0` should be present.
   - If the capture resolution is changed in the script, the computer needs to be rebooted.
   - If only a small part of the picture is visible, change the crop rectangle in the script.
+  - Try `adb kill-server` before running the script. `adb devices` should show something in the device list, too.
   
 ## Credits
 

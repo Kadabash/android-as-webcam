@@ -1,4 +1,4 @@
-#!/bin/bash
+##!/bin/bash
 
 # Source recording options:
 RECORD_WIDTH_PX=360
@@ -15,8 +15,8 @@ OFFSET_PX_FROM_TOP=120
 OFFSET_PX_FROM_LEFT=0
 
 
-V4L2LOOPBACK_IS_PRESENT=$(lsmod | grep v4l2loopback | wc -l)
-if (( $V4L2LOOPBACK_IS_PRESENT == 0 )); then
+V4L2LOOPBACK_IS_PRESENT=$(lsmod | grep -c v4l2loopback)
+if (( V4L2LOOPBACK_IS_PRESENT == 0 )); then
     echo "Kernel module 'v4l2loopback' is not present." \
 	 "Install the package ('v4l2loopback-dkms' on Debian 10)," \
          "then run 'sudo insmod v4l2loopback'."
@@ -26,7 +26,7 @@ fi
 # Start streaming command over for ever, because it
 # terminates every 180 seconds.
 trap "exit 0" SIGINT SIGTERM  # Terminate script when CTRL+C is pressed. Otherwise, the while loop would just start over.
-while [[ 1 ]]; do
+while true; do
     adb shell -T  `# '-T' turns of pty for stdin/stdout, so we get just the raw bytes from the command` \
         screenrecord  `# Android built-in debugging screen recorder` \
         --output-format=h264  `# This option is not documented anywhere I can find, but it was necessary in my tests` \
